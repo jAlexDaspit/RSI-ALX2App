@@ -34,8 +34,14 @@ public class JobListViewAdapter extends RecyclerView.Adapter<JobListViewAdapter.
     }
 
     @Override
-    public JobViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public JobViewHolder onCreateViewHolder(ViewGroup viewGroup, final int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.job_list_item, viewGroup, false);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fragment.mEventBus.post(new EditJobEvent(jobs.get(i)));
+            }
+        });
         return new JobViewHolder(view, jobs.get(i));
     }
 
@@ -47,8 +53,6 @@ public class JobListViewAdapter extends RecyclerView.Adapter<JobListViewAdapter.
         jobViewHolder.location.setText(job.getLocation());
         jobViewHolder.description.setText(job.getDescription());
         jobViewHolder.date.setText(mFormat.format(job.getTimestamp()));
-        jobViewHolder.index=i;
-
     }
 
     @Override
@@ -58,17 +62,9 @@ public class JobListViewAdapter extends RecyclerView.Adapter<JobListViewAdapter.
 
     public class JobViewHolder extends RecyclerView.ViewHolder {
         TextView companyName, position, description, location, date;
-        int index;
 
         public JobViewHolder(View itemView, Job job) {
             super(itemView);
-
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    fragment.mEventBus.post(new EditJobEvent(jobs.get(index)));
-                }
-            });
 
             companyName = (TextView) itemView.findViewById(R.id.companyName);
             position = (TextView) itemView.findViewById(R.id.position);

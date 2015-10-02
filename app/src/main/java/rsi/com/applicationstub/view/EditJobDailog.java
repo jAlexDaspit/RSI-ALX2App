@@ -13,7 +13,6 @@ import butterknife.ButterKnife;
 import rsi.com.applicationstub.BaseDialogFragment;
 import rsi.com.applicationstub.R;
 import rsi.com.applicationstub.domain.Job;
-import rsi.com.applicationstub.event.AddJobEvent;
 import rsi.com.applicationstub.event.EditJobEvent;
 
 /**
