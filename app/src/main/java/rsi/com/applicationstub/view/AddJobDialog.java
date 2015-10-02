@@ -42,7 +42,6 @@ public class AddJobDialog extends BaseDialogFragment {
                         Job job = new Job(mCompanyName.getText().toString(), mDescriptionText.getText().toString(),
                                 mCity.getText().toString(), mPositionText.getText().toString());
                         mEventBus.post(new AddJobEvent(job));
-                        mEventBus.post(new AddJobEvent(job));
                     }
                 })
                 .setNegativeButton(R.string.dialog_cancel, null)
