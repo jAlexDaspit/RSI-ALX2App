@@ -29,6 +29,7 @@ import rsi.com.applicationstub.BaseFragment;
 import rsi.com.applicationstub.R;
 import rsi.com.applicationstub.domain.Job;
 import rsi.com.applicationstub.event.AddJobEvent;
+import rsi.com.applicationstub.event.EditJobEvent;
 import rsi.com.applicationstub.event.FABEvent;
 import rsi.com.applicationstub.event.GetJobListServiceEvent;
 import rsi.com.applicationstub.service.JobService;
@@ -80,7 +81,7 @@ public class JobListFragment extends BaseFragment {
 
         mJobListView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        mAdapter = new JobListViewAdapter();
+        mAdapter = new JobListViewAdapter(this);
         mJobListView.setAdapter(mAdapter);
 
         mJobListView.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -119,6 +120,11 @@ public class JobListFragment extends BaseFragment {
     @Subscribe
     public void onFABClicked(FABEvent event) {
         new AddJobDialog().show(getChildFragmentManager(), "addJob");
+    }
+
+    @Subscribe
+    public void onEditJobClicked(EditJobEvent event) {
+        EditJobDailog.newInstance(event.job).show(getFragmentManager(), "editJob");
     }
 
     @Subscribe

@@ -1,6 +1,7 @@
 package rsi.com.applicationstub.viewadapters;
 
 import android.content.Intent;
+import android.support.v4.app.Fragment;
 import android.support.v7.util.SortedList;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -16,14 +17,21 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 
+import rsi.com.applicationstub.BaseFragment;
 import rsi.com.applicationstub.R;
 import rsi.com.applicationstub.domain.Job;
+import rsi.com.applicationstub.event.EditJobEvent;
 
 public class JobListViewAdapter extends RecyclerView.Adapter<JobListViewAdapter.JobViewHolder> {
 
     private List<Job> jobs;
+    BaseFragment fragment;
 
     private SimpleDateFormat mFormat = new SimpleDateFormat("MMMM d, h:mm", Locale.getDefault());
+
+    public JobListViewAdapter(BaseFragment fragment)  {
+        this.fragment = fragment;
+    }
 
     @Override
     public JobViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
@@ -39,6 +47,7 @@ public class JobListViewAdapter extends RecyclerView.Adapter<JobListViewAdapter.
         jobViewHolder.location.setText(job.getLocation());
         jobViewHolder.description.setText(job.getDescription());
         jobViewHolder.date.setText(mFormat.format(job.getTimestamp()));
+        jobViewHolder.index=i;
 
     }
 
@@ -49,6 +58,7 @@ public class JobListViewAdapter extends RecyclerView.Adapter<JobListViewAdapter.
 
     public class JobViewHolder extends RecyclerView.ViewHolder {
         TextView companyName, position, description, location, date;
+        int index;
 
         public JobViewHolder(View itemView, Job job) {
             super(itemView);
@@ -56,8 +66,7 @@ public class JobListViewAdapter extends RecyclerView.Adapter<JobListViewAdapter.
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent next = new Intent(gettext(), Home.class);
-                    startActivity(next);
+                    fragment.mEventBus.post(new EditJobEvent(jobs.get(index)));
                 }
             });
 

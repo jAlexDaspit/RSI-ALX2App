@@ -1,5 +1,6 @@
 package rsi.com.applicationstub.activity;
 
+import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -32,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
+
+        final ActionBar actionBar = getActionBar();
 
         mObjectGraph = ObjectGraph.create(new DaggerModule(this));
         mObjectGraph.inject(this);
