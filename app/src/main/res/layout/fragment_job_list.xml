@@ -1,0 +1,15 @@
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeRefreshLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="rsi.com.applicationstub.view.JobListFragment">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/jobListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        tools:listItem="@layout/job_list_item" />
+
+</android.support.v4.widget.SwipeRefreshLayout>

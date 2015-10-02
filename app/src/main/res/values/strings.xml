@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Job Listings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="endpoint">http://10.0.2.2:8080</string>
+
+    <string name="companyName">Company Name</string>
+    <string name="location">Location</string>
+    <string name="position">Position</string>
+    <string name="description">Description</string>
+    <string name="city">City</string>
+    <string name="state">State</string>
+    <string name="date">Date</string>
+    <string name="dialog_add_job_title">Add Job</string>
+    <string name="dialog_add">Add</string>
+    <string name="dialog_cancel">Cancel</string>
+
+    <string name="OK">OK</string>
+
+    <string name="snackbar_error">Network Error</string>
+
+</resources>

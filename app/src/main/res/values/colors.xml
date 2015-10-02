@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+    <color name="primary">#F44336</color>
+    <color name="primary_dark">#B71C1C</color>
+    <color name="accent">#FF8A80</color> -->
+    <color name="primary">@color/rsi_red</color>
+    <color name="primary_dark">@color/rsi_dark_red</color>
+    <color name="accent">@color/rsi_red</color>
+
+    <color name="clubhouse_blue">#27ADE5</color>
+    <color name="clubhouse_darker_blue">#11688d</color>
+    <color name="clubhouse_black">#FFFFFF</color>
+    <color name="clubhouse_white">#DEDEDE</color>
+
+    <color name="rsi_red">#cd0000</color>
+    <color name="rsi_dark_red">#600</color>
+
+    <color name="fade">#33000000</color>
+</resources>
