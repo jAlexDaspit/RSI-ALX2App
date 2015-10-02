@@ -17,6 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/companyName"
+            android:inputType="text"
             tools:text="RSI"
             android:focusable="true" />
     </android.support.design.widget.TextInputLayout>
@@ -30,6 +31,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/position"
+            android:inputType="text"
             tools:text="Java Developer"
             android:focusable="true" />
     </android.support.design.widget.TextInputLayout>
@@ -38,10 +40,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <AutoCompleteTextView
+        <EditText
             android:id="@+id/description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="text"
             android:hint="@string/description"
             android:focusable="true" />
     </android.support.design.widget.TextInputLayout>
@@ -50,11 +53,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <AutoCompleteTextView
+        <EditText
             android:id="@+id/state"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/state"
+            android:inputType="text"
             android:focusable="true" />
     </android.support.design.widget.TextInputLayout>
 
@@ -62,11 +66,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <AutoCompleteTextView
+        <EditText
             android:id="@+id/city"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/city"
+            android:inputType="text"
             android:focusable="true" />
     </android.support.design.widget.TextInputLayout>
 

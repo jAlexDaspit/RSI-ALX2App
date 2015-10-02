@@ -96,6 +96,8 @@ public class JobListFragment extends BaseFragment {
             }
         });
 
+        mJobListView.hasOnClickListeners();
+
         if (state != null) {
             ArrayList<Job> jobs = state.getParcelableArrayList(JOB_LIST_KEY);
             mAdapter.refresh(jobs);

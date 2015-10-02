@@ -1,5 +1,6 @@
 package rsi.com.applicationstub.viewadapters;
 
+import android.content.Intent;
 import android.support.v7.util.SortedList;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -38,6 +39,7 @@ public class JobListViewAdapter extends RecyclerView.Adapter<JobListViewAdapter.
         jobViewHolder.location.setText(job.getLocation());
         jobViewHolder.description.setText(job.getDescription());
         jobViewHolder.date.setText(mFormat.format(job.getTimestamp()));
+
     }
 
     @Override
@@ -50,6 +52,14 @@ public class JobListViewAdapter extends RecyclerView.Adapter<JobListViewAdapter.
 
         public JobViewHolder(View itemView, Job job) {
             super(itemView);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent next = new Intent(gettext(), Home.class);
+                    startActivity(next);
+                }
+            });
 
             companyName = (TextView) itemView.findViewById(R.id.companyName);
             position = (TextView) itemView.findViewById(R.id.position);
@@ -64,6 +74,9 @@ public class JobListViewAdapter extends RecyclerView.Adapter<JobListViewAdapter.
                 date.setText(mFormat.format(job.getTimestamp()));
             }
         }
+
+
+
     }
 
     public void refresh(List<Job> jobs) {
